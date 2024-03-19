@@ -1,8 +1,8 @@
 import React from 'react';
 
 type AddressType = {
-    street: string;
-    city: string;
+    street?: string;
+    city?: string;
 };
 
 type UserType = {
@@ -13,22 +13,23 @@ type UserType = {
 };
 
 type UserListPropsType = {
-    users: UserType[];
+    users: Array<UserType>;
 };
 
-export const UserList: React.FC<UserListPropsType> = ({ users }) => {
+export const UserList = (props: UserListPropsType) => {
     return (
         <div id={'hw01-users'}>
             <h2>User List:</h2>
-            <ul>
-                {users.map(user => (
-                    <li key={user.id} id={`hw01-user-${user.id}`}>
-                        <strong>{user.name}</strong> (Age: {user.age})<strong> Address:</strong>
-                        <div>
-                            {user.address.street}, {user.address.city}
-                        </div>
-                    </li>
-                ))}
+            <ul>asd
+                {props.users.map((user)=>{
+                    return(
+                        <li key={user.id} id={`hw01-user-${user.id}`}>
+                            {user.name}asd
+                            (age: {user.age})
+                            Address: {user.address.street}, {user.address.city}
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     );
